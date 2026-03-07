@@ -37,4 +37,4 @@ An **employee** _may_ (we consider the owner to be an employee and they do not h
 
 #### Customer
 
-A **customer** _may_ **place** _any number_ (they become a potential **customer** once they enter the shop; not when they buy something) of **orders**. Some **customers** have special rights and they **can get** _some_ (there is no reason to limit their special rights to just one banana) **bananas for free**. Each **banana** can potentially be claimed by any of the **customers**, but once a **customer** decides to get a specific **banana** for free, that **banana** can't be claimed by anyone else — thus the **can get for free** relationship is N:M.
+A **customer** _may_ **place** _any number_ (they become a potential **customer** once they enter the shop; not when they buy something) of **orders**. Some **customers** have "special rights" and they **can get** _some_ (there is no reason to limit their special rights to just one banana) **bananas for free**. There also may exist multiple customers that have the "special right" that they **can get** _one specific banana_ **for free** which is why the relation is _N:M_.
