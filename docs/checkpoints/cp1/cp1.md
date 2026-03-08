@@ -17,11 +17,11 @@ In this section we provide the description of entities and their relations.
 
 #### Banana
 
-Central to our model is the **banana** entity. It has two attributes: a **barcode** (which identifies it) and a **weight (kg)** which is going to become useful once it is purchased. A banana may be **contained** inside _one_ (we avoid multiple **customers** purchasing the same **banana**) **order**. _Every_ banana is located in _one_ (given its macroscopic properties it may not be in two places at once) **shelf**. A **banana** may be **showcase sample** for _precisely one_ **shelf**.
+Central to our model is the **banana** entity. It has two attributes: a **barcode** (which identifies it) and a **weight (kg)** which is going to become useful once it is purchased. A banana _may_ be **contained** inside _one_ (we avoid multiple **customers** purchasing the same **banana**) **order**. _Every_ banana is located in _one_ (given its macroscopic properties, it may not be in two places at once) **shelf**. A **banana** may be **showcase sample** for _precisely one_ **shelf**.
 
 #### Shelf
 
-A shelf is identified with its **row** and **column** number inside the shop. It also has an attribute **price/kg** which is going to play a role in determining the prices of bananas. _Each_ shelf has _one_ (there is no need for multiple of them) **showcase sample** **banana**.
+A shelf is identified with its **row** and **column** number inside the shop. It also has an attribute **price/kg** which is going to play a role in determining the prices of bananas in it. _Each_ shelf has _one_ (there is no need for multiple of them) **showcase sample** **banana**.
 
 #### Order
 
@@ -29,7 +29,7 @@ An order's only attribute is its **creation time**. It is a weak entity, identif
 
 #### Person
 
-A **person** is the base for the **customer** and **employee** entities. A **person** is identified by an **e-mail address** _or_ a **birth number**. This entity also has a **name**, **address** (composed of **city**, **street**, and **postal code**), and a **phone number**. _Each_ person must be an **employee** or a **customer** (there is no good reason to include other **persons** in our model). Some **persons** may be both **employees** and **customers** (this allows for the punchline where an **employee** starts eating all the **bananas**).
+A **person** is the base for the **customer** and **employee** entities. A **person** is identified by an **e-mail address** _or_ a **birth number**. This entity also has a **name**, **address** (composed of **city**, **street**, and **postal code**), and _zero or more_ **phone numbers**. _Each_ person must be an **employee** or a **customer** (there is no good reason to include other **persons** in our model). Some **persons** may be both **employees** and **customers** (this allows for the punchline where an **employee** starts eating all the **bananas**).
 
 #### Employee
 
