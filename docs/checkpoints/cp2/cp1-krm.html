@@ -1,0 +1,70 @@
+<ul>
+  <li>
+    Person(<u>birth_number</u>, <u>email</u>, name, city, street, postal_code)
+  </li>
+  <li>
+    PhoneNumber(<u>phone_number</u>, person_birth_number)
+    <ul>
+      <li>FK: person_birth_number ⊆ Person(birth_number)</li>
+    </ul>
+  </li>
+  <li>
+    Employee(<u>person_birth_number</u>)
+    <ul>
+      <li>FK: person_birth_number ⊆ Person(birth_number)</li>
+    </ul>
+  </li>
+  <li>
+    Customer(<u>person_birth_number</u>)
+    <ul>
+      <li>FK: person_birth_number ⊆ Person(birth_number)</li>
+    </ul>
+  </li>
+  <li>
+    Banana(<u>barcode</u>, weight, shelf_row_number, shelf_column_number)
+    <ul>
+      <li>
+        FK (shelf_row_number, shelf_column_number) ⊆ Shelf(row_number,
+        column_number)
+      </li>
+    </ul>
+  </li>
+  <li>
+    Shelf(<u>row_number, column_number</u>, price/kg, banana_barcode)
+    <ul>
+      <li>FK: banana_barcode ⊆ Banana(barcode)</li>
+    </ul>
+  </li>
+  <li>
+    Order(<u>customer_birth_number, creation_time</u>, employee_birth_number)
+    <ul>
+      <li>FK: customer_birth_number ⊆ Customer(birth_number)</li>
+      <li>FK: employee_birth_number ⊆ Employee(birth_number)</li>
+      <li>FK: banana_barcode ⊆ Banana(barcode)</li>
+    </ul>
+  </li>
+  <li>
+    Supervises(<u>junior</u>, senior)
+    <ul>
+      <li>FK: junior ⊆ Employee(birth_number)</li>
+      <li>FK: senior ⊆ Employee(birth_number)</li>
+    </ul>
+  </li>
+  <li>
+    CanGetForFree(<u>customer_birth_number, banana_barcode</u>)
+    <ul>
+      <li>FK: customer_birth_number ⊆ Customer(birth_number)</li>
+      <li>FK: banana_barcode ⊆ Banana(barcode)</li>
+    </ul>
+  </li>
+  <li>
+    Contains(<u>banana_barcode</u>, customer_birth_number, order_creation_time)
+    <ul>
+      <li>FK: banana_barcode ⊆ Banana(barcode)</li>
+      <li>
+        FK: (customer_birth_number, order_creation_time) ⊆
+        Customer(birth_number, creation_time)
+      </li>
+    </ul>
+  </li>
+</ul>
