@@ -1,4 +1,4 @@
-CREATE TABLE person (
+CREATE TABLE person(
     person_id uuid NOT NULL,
     birth_number varchar(255),
     email varchar(255),
@@ -10,20 +10,20 @@ CREATE TABLE person (
     PRIMARY KEY (person_id)
 );
 
-CREATE TABLE phone_number (
+CREATE TABLE phone_number(
     phone_number varchar(255) NOT NULL,
     person_id uuid NOT NULL REFERENCES person(person_id) ON DELETE RESTRICT,
     UNIQUE (phone_number),
     PRIMARY KEY (phone_number)
 );
 
-CREATE TABLE employee (
+CREATE TABLE employee(
     person_id uuid NOT NULL REFERENCES person(person_id) ON DELETE RESTRICT,
     UNIQUE (person_id),
     PRIMARY KEY (person_id)
 );
 
-CREATE TABLE customer (
+CREATE TABLE customer(
     person_id uuid NOT NULL REFERENCES person(person_id) ON DELETE RESTRICT,
     UNIQUE (person_id),
     PRIMARY KEY (person_id)
@@ -37,7 +37,7 @@ CREATE TABLE shelf(
     PRIMARY KEY (column_number, row_number)
 );
 
-CREATE TABLE banana (
+CREATE TABLE banana(
     barcode uuid NOT NULL,
     weight decimal NOT NULL,
     shelf_row_number integer NOT NULL,
