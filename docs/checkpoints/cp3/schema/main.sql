@@ -77,3 +77,5 @@ CREATE TABLE order_contains_banana(
     PRIMARY KEY (banana_barcode),
     FOREIGN KEY (order_creation_time, customer_person_id) REFERENCES banana_order(creation_time, customer_person_id) ON DELETE RESTRICT
 );
+
+GRANT ALL PRIVILEGES ON brandsi1.* TO 'copakond' @'%' WITH GRANT OPTION;
