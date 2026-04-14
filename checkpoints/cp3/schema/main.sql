@@ -1,3 +1,7 @@
+DROP SCHEMA public CASCADE;
+
+CREATE SCHEMA public;
+
 CREATE TABLE person(
     person_id uuid NOT NULL,
     birth_number varchar(255),
@@ -78,4 +82,8 @@ CREATE TABLE order_contains_banana(
     FOREIGN KEY (order_creation_time, customer_person_id) REFERENCES banana_order(creation_time, customer_person_id) ON DELETE RESTRICT
 );
 
-GRANT ALL PRIVILEGES ON brandsi1.* TO 'copakond' @'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON DATABASE brandsi1 TO copakond;
+
+GRANT ALL PRIVILEGES ON SCHEMA public TO copakond;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO copakond;
