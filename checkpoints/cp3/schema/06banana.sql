@@ -1,6 +1,6 @@
 CREATE TABLE banana(
     barcode uuid NOT NULL,
-    weight decimal NOT NULL,
+    weight decimal NOT NULL CHECK (weight >= 0),
     shelf_row_number integer NOT NULL,
     shelf_column_number integer NOT NULL,
     UNIQUE (barcode),
