@@ -9,7 +9,7 @@
 
 = SQL
 
-In this document we describe our SQL schema and queries.
+In this document we describe our SQL schema and queries. The code mentioned here is also available in plaintext form in #link("https://github.com/SimonBrandner/dbs-banana-shop")[a GitHub repository].
 
 #figure(
   image("schema/diagram.png", width: 100%),
