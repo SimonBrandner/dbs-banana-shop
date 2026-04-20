@@ -18,7 +18,7 @@ In this document we describe our SQL schema and queries. The code mentioned here
 
 == Tables
 
-Here we list and describe the tables used in our database.
+Here we list and describe the tables used in our database. We use #raw(lang: "sql", "ON DELETE RESTRICT") in several places in order to make sure the database's integrity is not corrupted. However, we do not expect to delete user rows (or any other rows) as we plan to simply update values of columns containing personal data to #raw(lang: "sql", "NULL") in the case of user deletion.
 
 === Person
 
