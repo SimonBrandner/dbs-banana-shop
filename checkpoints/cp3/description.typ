@@ -8,6 +8,11 @@
 
 In this document we describe our SQL schema and queries.
 
+#figure(
+  image("schema/diagram.png", width: 100%),
+  caption: [SQL Schema diagram taken from DBeaver],
+)
+
 == Tables
 
 Here we list and describe the tables used in our database.
