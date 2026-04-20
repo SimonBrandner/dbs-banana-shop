@@ -1,3 +1,6 @@
+#show link: underline
+#set par(justify: true)
+
 #let sql-code(path) = {
   let sql = read(path)
 
