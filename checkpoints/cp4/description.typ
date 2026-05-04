@@ -39,6 +39,31 @@ Sometimes it may be useful to see which employees sold bananas to some customers
 
 #sql-code("./sql/sold_to_view.sql")
 
+Running
+
+```sql
+SELECT * FROM sold_to_view;
+```
+
+gives
+
+```
+employee_name                |customer_name              |
+-----------------------------+---------------------------+
+Ivan Marek                   |Alexandr Ševčík            |
+Marie Doležalová             |Dobroslav Bárta            |
+Květoslava Musilová          |Vanda Marešová             |
+Žofie Křížová                |Ivana Pavlíková            |
+Žofie Křížová                |Radoslav Kadlec            |
+Vilma Růžičková              |Jan Vlček                  |
+Alexander Kratochvíl         |Robert Kopecký             |
+Linda Vaňková                |Vladimír Matoušek          |
+Ignác Prokop                 |Mahulena Zemanová          |
+Sára Vávrová                 |Jaroslav Dvořák            |
+Ján Polák                    |Edita Strnadová            |
+...                          |...                        |
+```
+
 == Trigger
 
 Some of our customers have special privileges -- they can get some bananas for free. It would be quite unfortunate if a customer thought they can get a certain banana for free, even though it has already been sold. For this reason we introduce the following trigger:
