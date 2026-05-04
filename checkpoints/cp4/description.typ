@@ -20,7 +20,7 @@ When a banana order is created it is paramount that the bananas ordered and the 
 which we call in a transaction like so:
 
 ```sql
-SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+SET TRANSACTION ISOLATION LEVEL READ COMMITED;
 BEGIN;
 CALL order_bananas(
     'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11'::uuid,
@@ -32,6 +32,8 @@ CALL order_bananas(
 );
 COMMIT;
 ```
+
+We use `ISOLATION LEVEL READ COMMITED`, because stricter isolation is not required and would only slow down the transaction execution.
 
 == View
 
