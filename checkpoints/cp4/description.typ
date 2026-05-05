@@ -72,6 +72,38 @@ Some of our customers have special privileges -- they can get some bananas for f
 
 #sql-code("./sql/can_get_for_free_trigger.sql")
 
+We can run
+```
+SELECT * FROM can_get_for_free;
+```
+to see that the customer `f2f5a861-645d-09c7-82b7-19060e99dde6` can get the banana `49207fba-f789-41bc-976b-3b009a8ae54d` for free.
+```
+customer_person_id                  |banana_barcode                      |
+------------------------------------+------------------------------------+
+f2f5a861-645d-09c7-82b7-19060e99dde6|49207fba-f789-41bc-976b-3b009a8ae54d|
+```
+
+However, once we run
+```sql
+INSERT INTO
+order_contains_banana(banana_barcode, customer_person_id, order_creation_time)
+VALUES
+(
+'49207fba-f789-41bc-976b-3b009a8ae54d',
+'f2f5a861-645d-09c7-82b7-19060e99dde6',
+'2026-02-04 08:07:17.370819+01'
+);
+```
+to make the customer order the banana, we can see, by running
+```
+SELECT * FROM can_get_for_free;
+```
+again, that the banana was removed:
+```
+customer_person_id|banana_barcode|
+------------------+--------------+
+```
+
 == Index
 
 The `person_id` column is not the primary; therefore, it will not be indexed. However, it will often be used during joins, and so we are going to index it:
