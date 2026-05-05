@@ -144,6 +144,50 @@ customer_person_id|banana_barcode|
 
 == Index
 
-The `person_id` column is not the primary; therefore, it will not be indexed. However, it will often be used during joins, and so we are going to index it:
+The shop sometimes needs to call a customer or an employee, so it is useful to be able to quickly look up their phone numbers. However, by running
+
+```sql
+EXPLAIN ANALYZE
+SELECT
+    *
+FROM
+    phone_number
+WHERE
+    phone_number.person_id = '35e0770a-a5d1-edce-aa05-d7ac8d670181';
+```
+
+we can see it is quite slow:
+
+```
+QUERY PLAN                |
+--------------------------+
+...                       |
+Planning Time: 0.089 ms   |
+Execution Time: 18.914 ms |
+```
+
+Therefore, we are going to index the `person_id` column:
 
 #sql-code("./sql/phone_number_person_id_index.sql")
+
+By running
+
+```sql
+EXPLAIN ANALYZE
+SELECT
+    *
+FROM
+    phone_number
+WHERE
+    phone_number.person_id = '35e0770a-a5d1-edce-aa05-d7ac8d670181';
+```
+
+again, we see a significant improvement:
+
+```
+QUERY PLAN               |
+-------------------------+
+...                      |
+Planning Time: 0.689 ms  |
+Execution Time: 0.099 ms |
+```
