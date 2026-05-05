@@ -23,17 +23,55 @@ which we call in a transaction like so:
 SET TRANSACTION ISOLATION LEVEL READ COMMITED;
 BEGIN;
 CALL order_bananas(
-    'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11'::uuid,
-    'b2ccbc22-8c0b-1ef2-cc6d-2bb9bd380b22'::uuid,
+    '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid,
+    'f171a58f-033c-ccea-a463-58c084cfc1d8'::uuid,
     ARRAY[
-        'c1eebc11-1c0b-1ef1-bb1d-1bb9bd380c11',
-        'd2eebc22-2c0b-2ef2-bb2d-2bb9bd380d22'
+        '87d7bbd7-240e-1142-3822-7034287185d3',
+        'd63c3438-3ea5-3145-d3d9-183966997d7d'
     ]::uuid[]
 );
 COMMIT;
 ```
 
 We use `ISOLATION LEVEL READ COMMITED`, because stricter isolation is not required and would only slow down the transaction execution.
+
+We can run the query
+
+```sql
+SELECT
+    *
+FROM
+    banana_order
+WHERE
+    customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
+```
+to check an order was created and see that it in fact was:
+
+```
+creation_time                 |customer_person_id   |employee_person_id   |
+------------------------------+---------------------+---------------------+
+2026-05-05 09:09:52.101 +0200 |820c33d3-c516-171b...|f171a58f-033c-ccea...|
+```
+
+Similarly, by running the query
+
+```sql
+SELECT
+    *
+FROM
+    order_contains_banana
+WHERE
+    customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
+```
+
+we see that bananas were associated with the order:
+
+```
+banana_barcode   |customer_person_id   |order_creation_time           |
+-----------------+---------------------+------------------------------+
+87d7bbd7-240e-...|820c33d3-c516-171b...|2026-05-05 09:09:52.101 +0200 |
+d63c3438-3ea5-...|820c33d3-c516-171b...|2026-05-05 09:09:52.101 +0200 |
+```
 
 == View
 
