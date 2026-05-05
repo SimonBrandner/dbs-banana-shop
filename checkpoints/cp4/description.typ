@@ -43,7 +43,7 @@ SELECT
 FROM
     banana_order
 WHERE
-    customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
+    banana_order.customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
 ```
 to check an order was created and see that it in fact was:
 
@@ -61,7 +61,7 @@ SELECT
 FROM
     order_contains_banana
 WHERE
-    customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
+    order_contains_banana.customer_person_id = '820c33d3-c516-171b-5f58-d8c050c05c5b'::uuid;
 ```
 
 we see that bananas were associated with the order:
@@ -124,12 +124,12 @@ f2f5a861-645d-09c7-82b7-19060e99dde6|49207fba-f789-41bc-976b-3b009a8ae54d|
 However, once we run
 ```sql
 INSERT INTO
-order_contains_banana(banana_barcode, customer_person_id, order_creation_time)
+    order_contains_banana(banana_barcode, customer_person_id, order_creation_time)
 VALUES
 (
-'49207fba-f789-41bc-976b-3b009a8ae54d',
-'f2f5a861-645d-09c7-82b7-19060e99dde6',
-'2026-02-04 08:07:17.370819+01'
+    '49207fba-f789-41bc-976b-3b009a8ae54d',
+    'f2f5a861-645d-09c7-82b7-19060e99dde6',
+    '2026-02-04 08:07:17.370819+01'
 );
 ```
 to make the customer order the banana, we can see, by running
