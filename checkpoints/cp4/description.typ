@@ -13,7 +13,7 @@ In this document we describe the advanced features used in our database. The cod
 
 == Transaction
 
-When a banana order is created it is paramount that the bananas ordered and the order itself are linked. It would be unpleasant if either got lost. For this reason we have a procedure
+When a banana order is created it is paramount that the bananas ordered and the order itself are linked. It would be unpleasant if either got lost: if the order entry got lost, the bananas could get associated with a non-existent order; if the banana entries got lost, we would have an empty order. For this reason we have a procedure
 
 #sql-code("./sql/banana_order_transaction.sql")
 
