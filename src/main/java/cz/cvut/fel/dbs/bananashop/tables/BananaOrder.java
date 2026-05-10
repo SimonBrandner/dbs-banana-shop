@@ -10,12 +10,26 @@ public class BananaOrder {
     @EmbeddedId
     private BananaOrderId id;
 
-    @MapsId("customerPersonId")
+    @MapsId("customer_person_id")
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_person_id", nullable = false)
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_person_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "employee_person_id", nullable = false)
     private Employee employee;
+
+
+
+
+    public BananaOrder() {}
+
+    public BananaOrderId getId() { return id; }
+    public void setId(BananaOrderId id) { this.id = id; }
+
+    public Customer getCustomer() { return customer; }
+    public void setCustomer(Customer customer) { this.customer = customer; }
+
+    public Employee getEmployee() { return employee; }
+    public void setEmployee(Employee employee) { this.employee = employee; }
 }

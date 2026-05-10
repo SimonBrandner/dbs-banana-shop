@@ -16,4 +16,13 @@ public class PhoneNumber {
     @ManyToOne(optional = false)
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
+
+
+    public PhoneNumber() {}
+
+    public String getPhoneNumber() { return phone_number; }
+    public void setPhoneNumber(String phone_number) { this.phone_number = phone_number; }
+
+    public Person getPerson() { return person; }
+    public void setPerson(Person person) { this.person = person; }
 }

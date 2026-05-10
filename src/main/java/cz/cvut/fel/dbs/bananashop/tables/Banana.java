@@ -21,4 +21,23 @@ public class Banana {
             @JoinColumn(name = "shelf_column_number", referencedColumnName = "column_number", nullable = false)
     })
     private Shelf shelf;
+
+
+
+    public Banana() {}
+
+    public Banana(UUID barcode, BigDecimal weight, Shelf shelf) {
+        this.barcode = barcode;
+        this.weight = weight;
+        this.shelf = shelf;
+    }
+
+    public UUID getBarcode() { return barcode; }
+    public void setBarcode(UUID barcode) { this.barcode = barcode; }
+
+    public BigDecimal getWeight() { return weight; }
+    public void setWeight(BigDecimal weight) { this.weight = weight; }
+
+    public Shelf getShelf() { return shelf; }
+    public void setShelf(Shelf shelf) { this.shelf = shelf; }
 }

@@ -17,12 +17,21 @@ public class Shelf {
     @EmbeddedId
     private ShelfId id;
 
-    @Column(name = "row_number")
-    private int row_number;
-
-    @Column(name = "column_number")
-    private int column_number;
-
     @Column(name = "price_per_kg")
     private BigDecimal price_per_kg ;
+
+
+
+    public Shelf() {}
+
+    public Shelf(ShelfId id, BigDecimal pricePerKg) {
+        this.id = id;
+        this.price_per_kg = pricePerKg;
+    }
+
+    public ShelfId getId() { return id; }
+    public void setId(ShelfId id) { this.id = id; }
+
+    public BigDecimal getPricePerKg() { return price_per_kg; }
+    public void setPricePerKg(BigDecimal price_per_kg) { this.price_per_kg = price_per_kg; }
 }

@@ -21,4 +21,17 @@ public class Supervises {
     @ManyToOne(optional = false)
     @JoinColumn(name = "senior", nullable = false)
     private Employee senior;
+
+
+
+    public Supervises() {}
+
+    public UUID getJuniorId() { return juniorId; }
+    public void setJuniorId(UUID juniorId) { this.juniorId = juniorId; }
+
+    public Employee getJunior() { return junior; }
+    public void setJunior(Employee junior) { this.junior = junior; }
+
+    public Employee getSenior() { return senior; }
+    public void setSenior(Employee senior) { this.senior = senior; }
 }

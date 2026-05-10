@@ -9,7 +9,5 @@ import java.util.UUID;
 @Entity
 @Table(name = "employee")
 public class Employee extends Person {
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
-    private Person person;
+    public Employee() {}
 }

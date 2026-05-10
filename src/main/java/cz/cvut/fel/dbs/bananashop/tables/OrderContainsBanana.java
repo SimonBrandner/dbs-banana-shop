@@ -9,7 +9,7 @@ import java.util.UUID;
 public class OrderContainsBanana {
     @Id
     @Column(name = "banana_barcode", nullable = false)
-    private UUID bananaBarcode;
+    private UUID banana_barcode;
 
     @OneToOne
     @MapsId
@@ -21,5 +21,17 @@ public class OrderContainsBanana {
             @JoinColumn(name = "order_creation_time", referencedColumnName = "creation_time", nullable = false),
             @JoinColumn(name = "customer_person_id", referencedColumnName = "customer_person_id", nullable = false)
     })
-    private BananaOrder bananaOrder;
+    private BananaOrder banana_order;
+
+
+    public OrderContainsBanana() {}
+
+    public UUID getBananaBarcode() { return banana_barcode; }
+    public void setBananaBarcode(UUID bananaBarcode) { this.banana_barcode = bananaBarcode; }
+
+    public Banana getBanana() { return banana; }
+    public void setBanana(Banana banana) { this.banana = banana; }
+
+    public BananaOrder getBananaOrder() { return banana_order; }
+    public void setBananaOrder(BananaOrder bananaOrder) { this.banana_order = bananaOrder; }
 }
