@@ -1,0 +1,20 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="bananaShopPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- TODO: change the database name from brandsi1 to your given db name -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://slon.felk.cvut.cz:5432/brandsi1"/>
+
+            <!-- TODO: RENAME THIS FILE TO persistence.xml and ADD USERNAME AND PASSWORD HERE (.env equivalent) -->
+            <property name="jakarta.persistence.jdbc.user" value="USERNAME" />
+            <property name="jakarta.persistence.jdbc.password" value="PASSWORD" />
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.default_schema" value="public"/>
+        </properties>
+    </persistence-unit>
+</persistence>
