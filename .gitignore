@@ -2,3 +2,4 @@
 *.csv
 merged.sql
 *.pdf
+.idea
