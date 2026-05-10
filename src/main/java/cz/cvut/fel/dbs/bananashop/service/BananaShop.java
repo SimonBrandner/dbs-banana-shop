@@ -81,8 +81,8 @@ public class BananaShop {
 
     public List<CanGetForFree> getFreeBananasForCustomer(UUID customerId) {
         return em.createQuery(
-            "SELECT f FROM CanGetForFree f WHERE f.customer.person_id = :custId", CanGetForFree.class)
-            .setParameter("custId", customerId)
+            "SELECT f FROM CanGetForFree f WHERE f.customer.person_id = :customerId", CanGetForFree.class)
+            .setParameter("customerId", customerId)
             .getResultList();
     }
 
@@ -121,7 +121,7 @@ public class BananaShop {
             }
 
             tx.commit();
-            System.out.println("Order" + order.getId() + "has been successfully completed");
+            System.out.println("order has been successfully completed");
 
         } catch (Exception e) {
             if (tx.isActive()) { tx.rollback(); }

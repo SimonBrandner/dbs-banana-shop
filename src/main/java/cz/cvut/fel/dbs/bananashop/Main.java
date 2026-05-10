@@ -18,7 +18,7 @@ public class Main {
         // Connect to DBS
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("bananashop");
         EntityManager em = emf.createEntityManager();
-        System.out.println("DB Connected! :D");
+        System.out.println("DB connected! :D");
 
 
         // Test function calls of the service
@@ -29,17 +29,15 @@ public class Main {
         System.out.println("customer created: " + customer1.getName() + " email: "  + customer1.getEmail() + " id: " + customer1.getPersonId());
 
         // create new employee
-        Employee cashier = new Employee();
-        cashier.setPersonId(UUID.randomUUID());
-        cashier.setName("Václav Kratochvíl");
+        Employee cashier = service.registerNewEmployee("Václav Kratochvíl");
 
         // create new shelf
-        Shelf newShelf = new Shelf(new ShelfId(99, 99), new BigDecimal("13.1"));
+        Shelf newShelf = service.createNewShelf(120, 124, new BigDecimal("13.1"));
         System.out.println("shelf created: " + newShelf.getId() + " price per kg: " + newShelf.getPricePerKg());
 
         // create 2 new banans
-        Banana banana1 = service.stockNewBanana(new BigDecimal("1.5"), newShelf);
-        Banana banana2 = service.stockNewBanana(new BigDecimal("1.2"), newShelf);
+        Banana banana1 = service.stockNewBanana(new BigDecimal("6.9"), newShelf);
+        Banana banana2 = service.stockNewBanana(new BigDecimal("4.2"), newShelf);
         System.out.println("2x bananas added to stock (stock) " + banana1.getBarcode() + ", " + banana2.getBarcode());
 
         // check which bananas can be purchased for free
