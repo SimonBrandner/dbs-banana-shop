@@ -1,5 +1,5 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
-    <persistence-unit name="bananaShopPU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="bananashop" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <properties>
